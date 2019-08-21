@@ -6,6 +6,7 @@ module SidekiqUniqueJobs
     end
 
     def unique_enabled?
+      return false if Rails.env.test?
       options[UNIQUE_KEY] || item[UNIQUE_KEY]
     end
 
