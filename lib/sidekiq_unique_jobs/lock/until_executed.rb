@@ -48,7 +48,7 @@ module SidekiqUniqueJobs
         when 1
           logger.debug { "successfully locked #{unique_key} for #{max_lock_time} seconds" }
           true
-        when 0
+        when 0, nil
           logger.debug { "failed to acquire lock for #{unique_key}" }
           false
         else

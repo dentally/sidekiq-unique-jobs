@@ -32,7 +32,7 @@ module SidekiqUniqueJobs
       when 0
         logger.debug { "expiring lock #{unique_key} is not owned by #{jid}" }
         false
-      when -1
+      when -1, nil
         logger.debug { "#{unique_key} is not a known key" }
         false
       else
